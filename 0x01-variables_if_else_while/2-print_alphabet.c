@@ -1,9 +1,10 @@
 #include <stdio.h>
 /**
-* main - Start
-*
-* Return - 0 at the end
-*/
+ * main - determines if the value of the random number
+ * * generated is positive, zero or negative
+ *
+ * Return: returns zero ar the end
+ */
 int main(void)
 {
 	char ch;
