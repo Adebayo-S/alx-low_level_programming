@@ -9,7 +9,8 @@
 
 int main(void)
 {
-	unsigned long fib, prevFib, prev2Fib, sum;
+	unsigned long fib, prevFib, prev2Fib;
+	float sum;
 
 	while (1)
 	{
@@ -20,13 +21,12 @@ int main(void)
 
 		if ((fib % 2) == 0)
 			sum += fib;
-		
 		prev2Fib = prevFib;
 		prevFib = fib;
 
 	}
 
-	printf("%lu\n", sum);
+	printf("%.0f\n", sum);
 
 	return (0);
 }
