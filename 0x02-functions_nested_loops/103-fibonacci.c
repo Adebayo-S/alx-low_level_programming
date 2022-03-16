@@ -14,14 +14,16 @@ int main(void)
 	while (1)
 	{
 		fib = prevFib + prev2Fib;
-		prev2Fib = prevFib;
-		prevFib = fib;
 
 		if (fib > 4000000)
 			break;
 
 		if ((fib % 2) == 0)
 			sum += fib;
+		
+		prev2Fib = prevFib;
+		prevFib = fib;
+
 	}
 
 	printf("%lu\n", sum);
