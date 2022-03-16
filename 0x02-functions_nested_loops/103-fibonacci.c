@@ -12,6 +12,9 @@ int main(void)
 	unsigned long fib, prevFib, prev2Fib;
 	float sum;
 
+	prevFib = 1;
+	prev2Fib = 0;
+
 	while (1)
 	{
 		fib = prevFib + prev2Fib;
