@@ -24,7 +24,7 @@ int main(void)
 			sum += fib;
 	}
 
-	printf("%d\n", sum);
+	printf("%lu\n", sum);
 
 	return (0);
 }
