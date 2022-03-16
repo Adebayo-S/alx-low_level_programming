@@ -15,7 +15,7 @@ int main(void)
 	{
 		fib = prevFib + prev2Fib;
 		prev2Fib = prevFib;
-		prevFib = prev2Fib;
+		prevFib = fib;
 
 		if (fib > 4000000)
 			break;
