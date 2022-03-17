@@ -7,7 +7,7 @@
 
 void print_triangle(int size)
 {
-	int row, column, k;
+	int row, column;
 
 	if (size <= 0)
 		_putchar('\n');
