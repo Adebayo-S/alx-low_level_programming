@@ -13,7 +13,10 @@ int main(void)
 	for (i = 1; i <= 100; i++)
 		if (i % 15 == 0)
 		{
-			printf("FizzBuzz ");
+			if (1 == 100)
+				printf("FizzBuzz");
+			else
+				printf("FizzBuzz ");
 		}
 		else if (i % 5 == 0)
 		{
