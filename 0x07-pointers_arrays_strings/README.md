@@ -1,9 +1,9 @@
 # 0x07. C - Even more pointers, arrays and strings
 
 ## About
-> Pointers to pointers and how to use them
-> Multidimensional arrays and how to use them
-> Common C standard library functions to manipulate strings
+- Pointers to pointers and how to use them
+- Multidimensional arrays and how to use them
+- Common C standard library functions to manipulate strings
 
 ## Technologies
 * Tested on Ubuntu 20.04 LTS
