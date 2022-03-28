@@ -15,7 +15,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; s[i] != '\0' ; i++)
 	{
