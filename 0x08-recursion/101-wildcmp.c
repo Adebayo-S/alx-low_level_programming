@@ -1,5 +1,7 @@
- /**
- * wildcmp - compares two strings
+#include "main.h"
+
+/**
+ * wildcmp - compares two string.
  * @s1: 1st string to be compared
  * @s2: second string containing '*' or not
  * Return: 1 if the strings can be considered as identical, and 0
