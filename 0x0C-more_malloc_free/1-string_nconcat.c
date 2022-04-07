@@ -21,14 +21,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s1_len = 0;
 
-	for (i = 0; s1[i]; i++)
-		s1_len++;
-
 	if (s1 == NULL)
 		s1 = "";
 
 	if (s2 == NULL)
 		s2 = "";
+
+	for (i = 0; s1[i]; i++)
+		s1_len++;
 
 	concat_len = s1_len + n;
 
