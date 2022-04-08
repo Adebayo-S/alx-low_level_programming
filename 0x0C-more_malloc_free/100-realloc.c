@@ -12,10 +12,8 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int i, j, sizeToAdd, sizeToRemove;
-	void **modPtr;
-
-	modPtr = ptr;
+	unsigned int i, j;
+	char *newPtr;
 
 	if (ptr == NULL)
 	{
@@ -25,30 +23,35 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (NULL);
 		return (ptr);
 	}
+
 	if (new_size == 0 && ptr != NULL)
-		return (NULL);
-	if (old_size == new_size)
-		return (ptr);
-	else if (new_size > old_size)
 	{
-		sizeToAdd = new_size - old_size;
-		for (i = 0, j = old_size; i < sizeToAdd; i++, j++)
-		{
-			*(modPtr + j) = malloc(1);
-			if (*(modPtr + j) == NULL)
-				return (NULL);
-		}
-		return (ptr);
+		free(ptr);
+		return (NULL);
 	}
+
+	newPtr = malloc(new_size * sizeof(char));
+			if (newPtr == NULL)
+				return (NULL);
+
+	if (new_size > old_size)
+	{
+		for (i = 0; i < old_size; i++)
+		{
+			newPtr[i] = ((char *)ptr)[i];
+		}
+		free(ptr);
+		return (newPtr);
+	}
+	else if (old_size == new_size)
+		return (ptr);
 	else
 	{
-		sizeToRemove = old_size - new_size;
-		for (i = 0, j = old_size - 1; i < sizeToRemove; i++, j--)
+		for (j = 0; j < new_size; j++)
 		{
-			*(modPtr + j) = malloc(0);
-			if (*(modPtr + j) == NULL)
-				return (NULL);
+			newPtr[j] = ((char *)ptr)[j];
 		}
-		return (ptr);
+		free(ptr);
+		return (newPtr);
 	}
 }
