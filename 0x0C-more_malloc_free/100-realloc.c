@@ -9,20 +9,20 @@
  * Return: ptr.
  * if new_size == old_size, returns ptr without changes.
  * if malloc fails, returns NULL.
- */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
-{
-	int i, j, numb, sizeToAdd, sizeToRemove, addedSpace;
-	void **modPtr;
-
-	modPtr = ptr;
-
-	addedSpace = old_size % sizeof(unsigned int);
+ *
+ * addedSpace = old_size % sizeof(unsigned int);
 
 	if (addedSpace == 0)
 		numb = old_size / sizeof(unsigned int);
 	else
 		numb = (old_size / sizeof(unsigned int)) + addedSpace;
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	int i, j, sizeToAdd, sizeToRemove;
+	void **modPtr;
+
+	modPtr = ptr;
 
 	if (ptr == NULL)
 	{
@@ -32,39 +32,33 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (NULL);
 		return (ptr);
 	}
-
 	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-
 	if (old_size == new_size)
 		return (ptr);
 	else if (new_size > old_size)
 	{
 		sizeToAdd = new_size - old_size;
-
-		for (i = 0, j = numb; i < sizeToAdd; i++, j++)
+		for (i = 0, j = old_size; i < sizeToAdd; i++, j++)
 		{
 			*(modPtr + j) = malloc(1);
 			if (*(modPtr + j) == NULL)
 				return (NULL);
 		}
-
 		return (ptr);
 	}
 	else
 	{
 		sizeToRemove = old_size - new_size;
-
-		for (i = 0, j = numb - 1; i < sizeToRemove; i++, j--)
+		for (i = 0, j = old_size - 1; i < sizeToRemove; i++, j--)
 		{
 			*(modPtr + j) = malloc(0);
 			if (*(modPtr + j) == NULL)
 				return (NULL);
 		}
-
 		return (ptr);
 	}
 }
