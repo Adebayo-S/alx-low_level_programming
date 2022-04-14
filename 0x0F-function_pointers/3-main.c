@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	if (argv[2][1] || !get_op_func(argv[2]))
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
 
 	a = atoi(argv[1]);
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	if ((argv[2][0] == '/' || argv[2][0] == '%') && (b == 0))
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
 
 	res = (*get_op_func(argv[2]))(a, b);
