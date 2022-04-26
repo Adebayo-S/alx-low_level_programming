@@ -1,6 +1,6 @@
 # Singly linked lists
 
-Project done during **Full Stack Software Engineering studies** at **Holberton School**. It aims to learn about linked lists in **C language**.
+In this project, I learned about implementing linked list data structures in C.
 
 ## Technologies
 
