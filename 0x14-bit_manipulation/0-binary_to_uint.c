@@ -14,7 +14,7 @@ unsigned int _strlen(char const *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 		;
-	return i;
+	return (i);
 }
 
 /**
