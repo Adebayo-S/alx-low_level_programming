@@ -11,23 +11,5 @@
  */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-	unsigned long int i = 0, idx = 0, hash = hash_djb2(key);
-	char str_hash[50];
-	char cncat[3];
-
-	sprintf(str_hash, "%ld", hash);
-
-	while (str_hash[i] && idx < size)
-	{
-		if (str_hash[i + 1])
-		{
-			cncat[0] = str_hash[i], cncat[1] = str_hash[i + 1], cncat[3] = '\0';
-			idx += atoi(cncat), i++;
-		}
-		else
-			idx += (int)(str_hash[i]);
-		i++;
-	}
-
-	return (idx);
+	return (hash_djb2(key) % size);
 }
