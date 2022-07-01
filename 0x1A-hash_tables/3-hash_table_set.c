@@ -2,6 +2,7 @@
 
 /**
  * hash_table_set -adds an element to the hash table.
+ * @ht: pointer to the hash table.
  * @key: is the key. key can not be an empty string.
  * @value: is the value associated with the key.
  *
@@ -12,11 +13,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int idx;
 	hash_node_t *newnode = NULL;
 
-	idx = key_index((const unsigned char *) key, ht->size);
-
 	newnode = malloc(sizeof(hash_node_t));
-	if (!newnode)
+	if (!newnode || !ht || !key || !value)
 		return (0);
+
+	idx = key_index((const unsigned char *) key, ht->size);
 
 	newnode->key = strdup(key);
 	newnode->value = strdup(value);
@@ -26,6 +27,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = newnode;
 		newnode->next = NULL;
 	}
+	else if (strcmp(ht->array[idx]->key, key) == 0)
+		ht->array[idx]->value = strdup(value);
 	else
 	{
 		newnode->next = ht->array[idx];
