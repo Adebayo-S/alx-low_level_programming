@@ -12,9 +12,6 @@ void hash_table_delete(hash_table_t *ht)
 	hash_node_t *temp = NULL;
 	hash_node_t *trail = NULL;
 
-	if (!ht)
-		return;
-
 	while (idx < ht->size)
 	{
 		if (ht->array[idx])
