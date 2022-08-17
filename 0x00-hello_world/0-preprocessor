@@ -1,2 +1,5 @@
 #!/bin/bash
+# other alternative solutions:
+# gcc -E $CFILE -o c
+# gcc -save-temps source_file && mv source_file.i file_name
 gcc -E $CFILE > c
